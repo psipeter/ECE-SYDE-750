@@ -19,21 +19,23 @@ def transcribe(type):
 	file = open("template.txt", 'r')
 	template = file.readline()
 	print('Printing %s string' %type)
+	result = ''
 	for base in template:
 		if type == 'original':
-			print(base),
+			result += base
 			continue
 		if base == 'C':
-			print('G'),
+			result += 'G'
 		if base == 'G':
-			print('C'),
+			result += 'C'
 		if base == 'A':
 			if type == 'complement':
-				print('T'),
+				result += 'T'
 			if type == 'mRNA':
-				print('U'),
+				result += 'U'
 		if base == 'T':
-			print('A'),
+			result += 'A'
+	print(result)
 
 def ribosome():
 	file = open("mRNA.txt", 'r')
@@ -134,7 +136,6 @@ def ribosome():
 
 if __name__ == "__main__":
 	transcribe('original')
-	print('\n')
 	transcribe('complement')
 	print('\n')
 	transcribe('mRNA')
